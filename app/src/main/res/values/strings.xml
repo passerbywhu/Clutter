@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">RecycleViewStudy</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="drawer_open">芝麻开门</string>
+    <string name="drawer_close">芝麻关门</string>
+</resources>

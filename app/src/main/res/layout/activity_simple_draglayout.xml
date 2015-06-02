@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity"
+    >
+
+    <LinearLayout
+        android:id="@+id/layer_lower"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/black"
+        >
+        <Button
+            android:id="@+id/hideButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="hideButton"
+            android:background="@android:color/holo_orange_light"/>
+        </LinearLayout>
+
+    <com.passerbywhu.study.dragLayout.SimpleDragLayout
+        android:id="@+id/simpleDragLayout"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:orientation="vertical"
+          android:background="@android:color/white"
+          android:layout_alignParentBottom="true"
+        >
+
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="btn1"
+            android:background="@android:color/holo_blue_bright"
+            />
+
+        <Button
+            android:id="@+id/btn2"
+            android:layout_marginTop="10dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="btn2"
+            android:background="@android:color/holo_blue_bright"
+            />
+
+        <Button
+            android:id="@+id/btn3"
+            android:layout_marginTop="10dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="btn3"
+            android:background="@android:color/holo_blue_bright"
+            />
+
+        <Button
+            android:id="@+id/btn4"
+            android:layout_marginTop="10dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="btn4"
+            android:background="@android:color/holo_blue_bright"
+            />
+    </com.passerbywhu.study.dragLayout.SimpleDragLayout>
+</RelativeLayout>
