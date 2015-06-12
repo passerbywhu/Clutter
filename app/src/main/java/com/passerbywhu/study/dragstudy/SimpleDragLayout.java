@@ -1,4 +1,4 @@
-package com.passerbywhu.study.dragLayout;
+package com.passerbywhu.study.dragstudy;
 
 import android.animation.ValueAnimator;
 import android.content.Context;

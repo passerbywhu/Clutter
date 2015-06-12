@@ -60,7 +60,7 @@
              android:layout_height="wrap_content"
              android:layout_centerInParent="true"></include>
 
-    <com.passerbywhu.study.dragLayout.DragLayout
+    <com.passerbywhu.study.dragstudy.DragLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/dragLayout"
@@ -95,5 +95,5 @@
             <!--android:text="Loreum Loreum Loreum Loreum Loreum Loreum LoreumLoreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum Loreum"-->
             <!--android:layout_width="match_parent"-->
             <!--android:layout_height="match_parent"/>-->
-        </com.passerbywhu.study.dragLayout.DragLayout>
+        </com.passerbywhu.study.dragstudy.DragLayout>
 </RelativeLayout>

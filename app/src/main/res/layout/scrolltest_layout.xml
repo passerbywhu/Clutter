@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <FrameLayout 
+        android:id="@+id/imgArea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >  
+        <ImageView 
+	       android:id="@+id/imgView"
+	       android:layout_width="match_parent"
+	       android:layout_height="wrap_content"
+	       android:src="@drawable/splash01"
+	       android:scaleType="centerCrop"/>
+    </FrameLayout>
+    
+    <TextView 
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:background="@drawable/imgarea_bg"
+        android:visibility="visible"/>
+    
+    <com.passerbywhu.customview.FlowLayout
+        android:id="@+id/flowLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        
+           <Button 
+	        android:id="@+id/up"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center"
+	        android:text="scrollY+"
+	        />
+    
+   	   <Button 
+   	       android:id="@+id/down"
+   	       android:layout_width="wrap_content"
+   	       android:layout_height="wrap_content"
+   	        android:layout_gravity="center"
+   	       android:text="scrollY-"
+   	     />
+   	   
+   	    <Button 
+   	       android:id="@+id/left"
+   	       android:layout_width="wrap_content"
+   	       android:layout_height="wrap_content"
+   	        android:layout_gravity="center"
+   	       android:text="scrollX+"
+   	      />
+   	    
+   	     <Button 
+   	       android:id="@+id/right"
+   	       android:layout_width="wrap_content"
+   	       android:layout_height="wrap_content"
+   	        android:layout_gravity="center"
+   	       android:text="scrollX-"
+   	      />
+   	     
+   	     <Button 
+   	       android:id="@+id/zoomIn"
+   	       android:layout_width="wrap_content"
+   	       android:layout_height="wrap_content"
+   	        android:layout_gravity="center"
+   	       android:text="zoomIn"
+   	       />
+   	      
+   	       <Button 
+   	       android:id="@+id/zoomOut"
+   	       android:layout_width="wrap_content"
+   	       android:layout_height="wrap_content"
+   	        android:layout_gravity="center"
+   	       android:text="zoomOut"
+   	       />
+   	       
+   	       <EditText 
+   	           android:id="@+id/scrollTo"
+   	           android:layout_width="wrap_content"
+   	           android:layout_height="wrap_content"
+   	           android:hint="input coordinates"/>
+   	       
+   	       <Button 
+   	           android:id="@+id/go"
+   	           android:layout_width="wrap_content"
+   	           android:layout_height="wrap_content"
+   	           android:text="OK"/>
+    </com.passerbywhu.customview.FlowLayout>
+    
+    <View 
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black"/>
+</LinearLayout>

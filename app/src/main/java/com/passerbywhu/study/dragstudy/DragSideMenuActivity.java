@@ -1,4 +1,4 @@
-package com.passerbywhu.study.dragLayout;
+package com.passerbywhu.study.dragstudy;
 
 import android.app.Activity;
 import android.content.Context;

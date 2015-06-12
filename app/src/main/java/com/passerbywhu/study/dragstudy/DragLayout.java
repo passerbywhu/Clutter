@@ -1,4 +1,4 @@
-package com.passerbywhu.study.dragLayout;
+package com.passerbywhu.study.dragstudy;
 
 import android.content.Context;
 import android.support.v4.view.ViewCompat;
