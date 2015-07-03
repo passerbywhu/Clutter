@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+    android:layout_marginTop="12dp"
+    android:paddingLeft="7dp"
+                android:paddingRight="7dp"
+    >
+
+    <TextView
+        android:id="@+id/layoutName"
+        android:textSize="12sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_below="@id/layoutName"
+        android:layout_marginTop="7dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/rb_match"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="8sp"
+            android:checked="true"
+            android:text="MATCH_PARENT"/>
+        <RadioButton
+            android:id="@+id/rb_wrap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="8sp"
+            android:text="WRAP_CONTENT" />
+        <RadioButton
+            android:id="@+id/rb_exact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="8sp"
+            android:text="EXACTLY" />
+    </RadioGroup>
+    <LinearLayout
+        android:layout_below="@id/radioGroup"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/widthExactly"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:gravity="center"
+            android:inputType="number"
+            android:hint="width"/>
+
+        <EditText
+            android:id="@+id/heightExactly"
+            android:layout_marginLeft="7dp"
+            android:textSize="10sp"
+            android:gravity="center"
+            android:inputType="number"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:hint="height"/>
+    </LinearLayout>
+</RelativeLayout>

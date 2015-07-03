@@ -1,15 +1,12 @@
 package com.passerbywhu.study;
 
 import android.annotation.TargetApi;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.drawable.Animatable;
 import android.net.Uri;
-import android.net.http.AndroidHttpClient;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -38,23 +35,6 @@ import com.facebook.imagepipeline.image.ImageInfo;
 import com.facebook.imagepipeline.image.QualityInfo;
 import com.passerbywhu.study.common.consts.Const;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
-
-import org.apache.http.Header;
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 import javax.annotation.Nullable;
 
@@ -132,49 +112,6 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        new Thread() {
-            @Override
-            public void run() {
-                int IO_BUFFER_SIZE = 8 * 1024 * 1024;
-                try {
-//                    final URL url = new URL(Const.imgUrls[0]);
-//                    HttpURLConnection urlConnection = null;
-//                    urlConnection = (HttpURLConnection) url.openConnection();
-//                    BufferedInputStream in = new BufferedInputStream(urlConnection.getInputStream(), IO_BUFFER_SIZE);
-                    final DefaultHttpClient client = new DefaultHttpClient();
-                    final HttpGet getRequest = new HttpGet(Const.imgUrls[0]);
-                    HttpResponse response = client.execute(getRequest);
-                    final int statusCode = response.getStatusLine().getStatusCode();
-                    if (statusCode != HttpStatus.SC_OK) {
-                        Header locationHeader = response.getFirstHeader("location");
-                        String directUrl = locationHeader.getValue();
-                        return;
-                    }
-                    final HttpEntity entity = response.getEntity();
-                    InputStream in = entity.getContent();
-//                    Bitmap bitmap = BitmapFactory.decodeStream(in);
-
-                    File file = new File("/mnt/sdcard/cache.jpg");
-                    if (file.exists()) {
-                        file.delete();
-                    }
-                    FileOutputStream fout = new FileOutputStream(file);
-                    byte[] buf = new byte[1024 * 1024];
-                    int count = 0;
-                    int len = in.read(buf);
-                    while (len != -1) {
-                        fout.write(buf, 0, len);
-                        count += len;
-                        len = in.read(buf);
-                    }
-                    fout.flush();
-                    fout.close();
-                    in.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }.start();
         toast = Toast.makeText(this, "", Toast.LENGTH_LONG);
         setContentView(R.layout.activity_main);
         DraweeController controller = Fresco.newDraweeControllerBuilder().setControllerListener(controllerListener).setUri(Uri.parse(Const.imgUrls[0])).build();

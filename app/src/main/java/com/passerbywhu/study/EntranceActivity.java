@@ -14,7 +14,6 @@ import com.passerbywhu.study.dragstudy.DragSideMenuActivity;
 import com.passerbywhu.study.dragstudy.GetViewTestActivity;
 import com.passerbywhu.study.dragstudy.SimpleDragLayoutActivity;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 

@@ -49,3 +49,5 @@ gradle
 Clutter.iml
 gradle.properties
 gradlew
+
+universalimageloader

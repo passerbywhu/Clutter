@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:oml="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <com.passerbywhu.study.customviewstudy.onmeasure.OnMeasureLayout
+        android:id="@+id/topLayout"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp"
+        android:background="#ffaf08ff"
+        oml:layout_name="FirstLayout"
+        >
+
+        <com.passerbywhu.study.customviewstudy.onmeasure.OnMeasureLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray"
+            android:padding="20dp"
+            oml:layout_name="SecondLayout"
+            >
+            <com.passerbywhu.study.customviewstudy.onmeasure.OnMeasureLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ffff805f"
+                android:padding="20dp"
+                oml:layout_name="ThirdLayout">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="I'm the center of the world"
+                    android:background="#ffffecf7"
+                    android:textColor="@android:color/black"
+                    />
+            </com.passerbywhu.study.customviewstudy.onmeasure.OnMeasureLayout>
+        </com.passerbywhu.study.customviewstudy.onmeasure.OnMeasureLayout>
+    </com.passerbywhu.study.customviewstudy.onmeasure.OnMeasureLayout>
+
+    <RelativeLayout
+        android:id="@+id/rightDrawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:gravity="center"
+        android:background="#FFFFFF"
+        >
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <TextView
+                android:id="@+id/rightTextView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="I'm the center of the drawerLayout"
+                />
+        </ScrollView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/leftDrawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:gravity="center"
+        android:background="@android:color/white"
+        >
+        <ScrollView
+            android:id="@+id/leftDrawerContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </ScrollView>
+    </RelativeLayout>
+</android.support.v4.widget.DrawerLayout>

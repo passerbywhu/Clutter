@@ -4,7 +4,7 @@
 
     <application
         android:allowBackup="true"
-        android:name="com.passerbywhu.study.MyApplication"
+        android:name=".MyApplication"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
@@ -19,12 +19,35 @@
         <activity android:name=".contentproviderstudy.DictionaryProviderStudy">
         </activity>
         <activity android:name=".EntranceActivity">
+
+        </activity>
+        <activity android:name=".dragstudy.GetViewTestActivity"></activity>
+        <activity android:name=".singletonstudy.SingletonWeakTest">
+        </activity>
+        <activity android:name=".butterknifestudy.SimpleActivity">
+        </activity>
+        <activity android:name=".daggerstudy.simple.ui.HomeActivity">
+        </activity>
+        <activity android:name=".daggerstudy.coffee.CoffeeAppActivity">
+        </activity>
+        <activity android:name=".canvasstudy.ShapeDrawableActivity">
+        </activity>
+        <activity android:name=".common.activity.BaseActivity"></activity>
+        <activity android:name=".common.activity.BaseListActivity">
+        </activity>
+        <activity android:name=".widgetstudy.edgeeffect.EdgeEffectStudy">
+        </activity>
+        <activity android:name=".customviewstudy.onmeasure.OnMeasureLayoutActivity"
+                  android:configChanges="orientation"
+            >
+
+        </activity>
+        <activity android:name=".customviewstudy.onmeasure.meausreinfo.MeasureInfoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".dragstudy.GetViewTestActivity"></activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"/>

@@ -2,6 +2,69 @@
 <items version="2" >
 
     <item
+        jar="D:\AndroidStudioWS\Clutter\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b8945fc23a7461c6fdde15753456d64b0a9358b">
+        <dex dex="D:\AndroidStudioWS\Clutter\app\build\intermediates\pre-dexed\debug\classes-5a3a68545b569e98132e5a5bb4040d3c0c541bc9.jar" />
+    </item>
+    <item
+        jar="C:\Users\wuwenchao3\.gradle\caches\modules-2\files-2.1\com.facebook.rebound\rebound\0.3.7\da23f0d13a0a572e01a1b53b547cbdc7a5b52209\rebound-0.3.7.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="da23f0d13a0a572e01a1b53b547cbdc7a5b52209">
+        <dex dex="D:\AndroidStudioWS\Clutter\app\build\intermediates\pre-dexed\debug\rebound-0.3.7-75d30a4898e71885a2a94f4bea9736748151846b.jar" />
+    </item>
+    <item
+        jar="D:\AndroidStudioWS\Clutter\app\build\intermediates\exploded-aar\com.facebook.fresco\fresco\0.1.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="ac307801bddb76621df8d2d96b5b378a6e615d4b">
+        <dex dex="D:\AndroidStudioWS\Clutter\app\build\intermediates\pre-dexed\debug\classes-786848d2636f0688b417fb4d8341342da32074eb.jar" />
+    </item>
+    <item
+        jar="C:\Users\wuwenchao3\.gradle\caches\modules-2\files-2.1\com.google.dagger\dagger\2.0.1\1261dfca5bae89a866a2855552da26feab7f8fad\dagger-2.0.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="1261dfca5bae89a866a2855552da26feab7f8fad">
+        <dex dex="D:\AndroidStudioWS\Clutter\app\build\intermediates\pre-dexed\debug\dagger-2.0.1-8a1be9fbe5c3c1ed45576e42e5fbb93b62478204.jar" />
+    </item>
+    <item
+        jar="C:\Users\wuwenchao3\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife\6.1.0\63735f48b82bcd24cdd33821342428252eb1ca5a\butterknife-6.1.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="63735f48b82bcd24cdd33821342428252eb1ca5a">
+        <dex dex="D:\AndroidStudioWS\Clutter\app\build\intermediates\pre-dexed\debug\butterknife-6.1.0-f6c82d6a3f6238b2265188297a321e3dd5de2f04.jar" />
+    </item>
+    <item
+        jar="D:\AndroidStudioWS\Clutter\app\libs\systembarlib.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="a429bda86064437238cc51908e4ebbda7bb11784">
+        <dex dex="D:\AndroidStudioWS\Clutter\app\build\intermediates\pre-dexed\debug\systembarlib-45d646557f9612d809d6346e6dab887d35e6438e.jar" />
+    </item>
+    <item
+        jar="D:\AndroidStudioWS\Clutter\app\build\intermediates\exploded-aar\com.facebook.fresco\fbcore\0.1.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="fc2b0f606d055d1bb0ac59889be210db89278363">
+        <dex dex="D:\AndroidStudioWS\Clutter\app\build\intermediates\pre-dexed\debug\classes-aad5f4ef0210c09bd4943d89ddc793e78f79a7de.jar" />
+    </item>
+    <item
+        jar="D:\AndroidStudioWS\Clutter\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
+        <dex dex="D:\AndroidStudioWS\Clutter\app\build\intermediates\pre-dexed\debug\classes-598c15d721d7a170b1a91247e7877dc538aaa6dc.jar" />
+    </item>
+    <item
+        jar="C:\Users\wuwenchao3\.gradle\caches\modules-2\files-2.1\javax.annotation\javax.annotation-api\1.2\479c1e06db31c432330183f5cae684163f186146\javax.annotation-api-1.2.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="479c1e06db31c432330183f5cae684163f186146">
+        <dex dex="D:\AndroidStudioWS\Clutter\app\build\intermediates\pre-dexed\debug\javax.annotation-api-1.2-0a5caf1a8f4f45c7c6fc774b87cff6705d73b22b.jar" />
+    </item>
+    <item
         jar="C:\Users\wuwenchao3\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-android\1.1.4\129874135e6081269ace2312092031558865de12\bolts-android-1.1.4.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -9,11 +72,18 @@
         <dex dex="D:\AndroidStudioWS\Clutter\app\build\intermediates\pre-dexed\debug\bolts-android-1.1.4-53db8885e843b5b7e49062bec4280cb1a380bc3f.jar" />
     </item>
     <item
-        jar="D:\AndroidStudioWS\Clutter\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\21.0.3\classes.jar"
+        jar="C:\Users\wuwenchao3\.gradle\caches\modules-2\files-2.1\javax.inject\javax.inject\1\6975da39a7040257bd51d21a231b76c915872d38\javax.inject-1.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="4b8945fc23a7461c6fdde15753456d64b0a9358b">
-        <dex dex="D:\AndroidStudioWS\Clutter\app\build\intermediates\pre-dexed\debug\classes-5a3a68545b569e98132e5a5bb4040d3c0c541bc9.jar" />
+        sha1="6975da39a7040257bd51d21a231b76c915872d38">
+        <dex dex="D:\AndroidStudioWS\Clutter\app\build\intermediates\pre-dexed\debug\javax.inject-1-78c68e609a66017f017790a96a25c01a5938f86c.jar" />
+    </item>
+    <item
+        jar="D:\AndroidStudioWS\Clutter\app\build\intermediates\exploded-aar\com.larswerkman\HoloColorPicker\1.5\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="ffaf68fa06f0339acf8f44d7b8c21d5c0501692b">
+        <dex dex="D:\AndroidStudioWS\Clutter\app\build\intermediates\pre-dexed\debug\classes-47186efaf174c4e8ebf84f01252912ffb7c8b4a9.jar" />
     </item>
     <item
         jar="D:\android-sdk-windows_r24\extras\android\m2repository\com\android\support\support-annotations\22.0.0\support-annotations-22.0.0.jar"
@@ -37,20 +107,6 @@
         <dex dex="D:\AndroidStudioWS\Clutter\app\build\intermediates\pre-dexed\debug\jsr305-3.0.0-0599bdc7ec0105d6f2c7dc04ed7aa966c0d205f7.jar" />
     </item>
     <item
-        jar="C:\Users\wuwenchao3\.gradle\caches\modules-2\files-2.1\com.facebook.rebound\rebound\0.3.7\da23f0d13a0a572e01a1b53b547cbdc7a5b52209\rebound-0.3.7.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="da23f0d13a0a572e01a1b53b547cbdc7a5b52209">
-        <dex dex="D:\AndroidStudioWS\Clutter\app\build\intermediates\pre-dexed\debug\rebound-0.3.7-75d30a4898e71885a2a94f4bea9736748151846b.jar" />
-    </item>
-    <item
-        jar="D:\AndroidStudioWS\Clutter\app\build\intermediates\exploded-aar\com.facebook.fresco\fresco\0.1.0\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="ac307801bddb76621df8d2d96b5b378a6e615d4b">
-        <dex dex="D:\AndroidStudioWS\Clutter\app\build\intermediates\pre-dexed\debug\classes-786848d2636f0688b417fb4d8341342da32074eb.jar" />
-    </item>
-    <item
         jar="D:\AndroidStudioWS\Clutter\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.0.0\classes.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -63,13 +119,6 @@
         revision="21.1.2"
         sha1="9093a362d18c5f81f58e49d86dece57d9b6e1cb7">
         <dex dex="D:\AndroidStudioWS\Clutter\app\build\intermediates\pre-dexed\debug\Volley-1.0.15-957b22156504092893efbbcae02703a47074ce05.jar" />
-    </item>
-    <item
-        jar="D:\AndroidStudioWS\Clutter\app\libs\systembarlib.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="a429bda86064437238cc51908e4ebbda7bb11784">
-        <dex dex="D:\AndroidStudioWS\Clutter\app\build\intermediates\pre-dexed\debug\systembarlib-45d646557f9612d809d6346e6dab887d35e6438e.jar" />
     </item>
     <item
         jar="D:\AndroidStudioWS\Clutter\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\libs\internal_impl-22.0.0.jar"
@@ -93,32 +142,11 @@
         <dex dex="D:\AndroidStudioWS\Clutter\app\build\intermediates\pre-dexed\debug\classes-b107a0cba65bd9ffbeb625897e443f8015dd2200.jar" />
     </item>
     <item
-        jar="D:\AndroidStudioWS\Clutter\app\build\intermediates\exploded-aar\com.facebook.fresco\fbcore\0.1.0\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="fc2b0f606d055d1bb0ac59889be210db89278363">
-        <dex dex="D:\AndroidStudioWS\Clutter\app\build\intermediates\pre-dexed\debug\classes-aad5f4ef0210c09bd4943d89ddc793e78f79a7de.jar" />
-    </item>
-    <item
         jar="C:\Users\wuwenchao3\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
         <dex dex="D:\AndroidStudioWS\Clutter\app\build\intermediates\pre-dexed\debug\library-2.4.0-088bcc77c90d4c83f5f2295ba483b2a1c2702a7b.jar" />
-    </item>
-    <item
-        jar="D:\AndroidStudioWS\Clutter\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
-        <dex dex="D:\AndroidStudioWS\Clutter\app\build\intermediates\pre-dexed\debug\classes-598c15d721d7a170b1a91247e7877dc538aaa6dc.jar" />
-    </item>
-    <item
-        jar="C:\Users\wuwenchao3\.gradle\caches\modules-2\files-2.1\javax.annotation\javax.annotation-api\1.2\479c1e06db31c432330183f5cae684163f186146\javax.annotation-api-1.2.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="479c1e06db31c432330183f5cae684163f186146">
-        <dex dex="D:\AndroidStudioWS\Clutter\app\build\intermediates\pre-dexed\debug\javax.annotation-api-1.2-0a5caf1a8f4f45c7c6fc774b87cff6705d73b22b.jar" />
     </item>
 
 </items>

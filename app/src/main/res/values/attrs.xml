@@ -8,4 +8,8 @@
             <enum name="right" value="2" />
         </attr>
     </declare-styleable>
+
+    <declare-styleable name="OnMeasureLayout">
+        <attr name="layout_name" format="string" />
+    </declare-styleable>
 </resources>
