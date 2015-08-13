@@ -1,4 +1,4 @@
-package com.passerbywhu.study.dragstudy;
+package com.passerbywhu.study.touchstudy.dragstudy;
 
 import android.app.Activity;
 import android.content.Context;

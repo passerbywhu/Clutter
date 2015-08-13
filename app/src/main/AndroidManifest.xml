@@ -2,9 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.passerbywhu.study" >
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_USER_DICTIONARY" />
+    <uses-permission android:name="android.permission.READ_USER_DICTIONARY" />
+
     <application
-        android:allowBackup="true"
         android:name=".MyApplication"
+        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
@@ -12,47 +18,50 @@
             android:name=".MainActivity"
             android:label="@string/app_name" >
         </activity>
-        <activity android:name=".dragstudy.SimpleDragLayoutActivity">
+        <activity android:name=".touchstudy.dragstudy.SimpleDragLayoutActivity" >
         </activity>
-        <activity android:name=".dragstudy.DragSideMenuActivity">
+        <activity android:name=".touchstudy.dragstudy.DragSideMenuActivity" >
         </activity>
-        <activity android:name=".contentproviderstudy.DictionaryProviderStudy">
+        <activity android:name=".contentproviderstudy.DictionaryProviderStudy" >
         </activity>
-        <activity android:name=".EntranceActivity">
-
+        <activity android:name=".EntranceActivity" >
         </activity>
-        <activity android:name=".dragstudy.GetViewTestActivity"></activity>
-        <activity android:name=".singletonstudy.SingletonWeakTest">
+        <activity android:name=".touchstudy.dragstudy.GetViewTestActivity" />
+        <activity android:name=".singletonstudy.SingletonWeakTest" >
         </activity>
-        <activity android:name=".butterknifestudy.SimpleActivity">
+        <activity android:name=".butterknifestudy.SimpleActivity" >
         </activity>
-        <activity android:name=".daggerstudy.simple.ui.HomeActivity">
+        <activity android:name=".daggerstudy.simple.ui.HomeActivity" >
         </activity>
-        <activity android:name=".daggerstudy.coffee.CoffeeAppActivity">
+        <activity android:name=".daggerstudy.coffee.CoffeeAppActivity" >
         </activity>
-        <activity android:name=".canvasstudy.ShapeDrawableActivity">
+        <activity android:name=".canvasstudy.ShapeDrawableActivity" >
         </activity>
-        <activity android:name=".common.activity.BaseActivity"></activity>
-        <activity android:name=".common.activity.BaseListActivity">
+        <activity android:name=".common.activity.BaseActivity" />
+        <activity android:name=".common.activity.BaseListActivity" >
         </activity>
-        <activity android:name=".widgetstudy.edgeeffect.EdgeEffectStudy">
+        <activity android:name=".widgetstudy.edgeeffect.EdgeEffectStudy" >
         </activity>
-        <activity android:name=".customviewstudy.onmeasure.OnMeasureLayoutActivity"
-                  android:configChanges="orientation"
-            >
-
+        <activity
+            android:name=".customviewstudy.onmeasure.OnMeasureLayoutActivity"
+            android:configChanges="orientation" >
         </activity>
-        <activity android:name=".customviewstudy.onmeasure.meausreinfo.MeasureInfoActivity">
+        <activity android:name=".customviewstudy.onmeasure.meausreinfo.MeasureInfoActivity" >
+        </activity>
+        <activity android:name=".touchstudy.dragstudy.dragsort.DragSortActivity" >
+        </activity>
+        <activity android:name=".dynamicloadstudy.DynamicLoadActivity" >
+        </activity>
+        <activity android:name=".dynamicloadstudy.ProxyActivity" >
+        </activity>
+        <activity android:name=".touchstudy.pulltozoom.PullToZoomActivity">
+        </activity>
+        <activity android:name=".touchstudy.pulltozoom.PullToZoomInterceptActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="ANDROID.INTENT.ACTION.MAIN"></action>
+                <category android:name="ANDROID.INTENT.CATEGORY.LAUNCHER"></category>
             </intent-filter>
         </activity>
     </application>
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_USER_DICTIONARY"/>
-    <uses-permission android:name="android.permission.READ_USER_DICTIONARY"/>
 </manifest>

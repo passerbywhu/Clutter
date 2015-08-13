@@ -1,4 +1,4 @@
-package com.passerbywhu.study.dragstudy;
+package com.passerbywhu.study.touchstudy.dragstudy;
 
 import android.content.Context;
 import android.support.v4.widget.SwipeRefreshLayout;
