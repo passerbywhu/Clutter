@@ -10,9 +10,9 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.passerbywhu.study.contentproviderstudy.DictionaryProviderStudy;
-import com.passerbywhu.study.dragstudy.DragSideMenuActivity;
-import com.passerbywhu.study.dragstudy.GetViewTestActivity;
-import com.passerbywhu.study.dragstudy.SimpleDragLayoutActivity;
+import com.passerbywhu.study.touchstudy.dragstudy.DragSideMenuActivity;
+import com.passerbywhu.study.touchstudy.dragstudy.GetViewTestActivity;
+import com.passerbywhu.study.touchstudy.dragstudy.SimpleDragLayoutActivity;
 
 import java.util.Arrays;
 import java.util.List;

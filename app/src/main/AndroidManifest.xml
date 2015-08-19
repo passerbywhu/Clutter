@@ -49,6 +49,10 @@
         <activity android:name=".customviewstudy.onmeasure.meausreinfo.MeasureInfoActivity" >
         </activity>
         <activity android:name=".touchstudy.dragstudy.dragsort.DragSortActivity" >
+            <intent-filter>
+                <action android:name="ANDROID.INTENT.ACTION.MAIN"></action>
+                <category android:name="ANDROID.INTENT.CATEGORY.LAUNCHER"></category>
+            </intent-filter>
         </activity>
         <activity android:name=".dynamicloadstudy.DynamicLoadActivity" >
         </activity>
@@ -57,10 +61,8 @@
         <activity android:name=".touchstudy.pulltozoom.PullToZoomActivity">
         </activity>
         <activity android:name=".touchstudy.pulltozoom.PullToZoomInterceptActivity">
-            <intent-filter>
-                <action android:name="ANDROID.INTENT.ACTION.MAIN"></action>
-                <category android:name="ANDROID.INTENT.CATEGORY.LAUNCHER"></category>
-            </intent-filter>
+        </activity>
+        <activity android:name=".shaderstudy.ReclineListViewActivity">
         </activity>
     </application>
 

@@ -6,13 +6,18 @@ import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.graphics.Rect;
 import android.graphics.Region;
+import android.os.Handler;
 import android.support.v4.view.MotionEventCompat;
+import android.support.v4.view.ViewCompat;
+import android.support.v4.view.ViewPropertyAnimatorCompat;
+import android.support.v4.view.ViewPropertyAnimatorListener;
 import android.support.v4.widget.ViewDragHelper;
+import android.support.v7.internal.view.ViewPropertyAnimatorCompatSet;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewPropertyAnimator;
+import android.view.animation.LinearInterpolator;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
@@ -41,6 +46,7 @@ public class DragSortGridView extends GridView {
     private List<View> children = new ArrayList<View>();  //用来在交换的过程中来保存顺序
     private boolean moveAnimStarted;
     private boolean delayEndCall;
+    private Handler mHandler;
 
     public DragSortGridView(Context context) {
         this(context, null);
@@ -122,52 +128,179 @@ public class DragSortGridView extends GridView {
         }
         if (intersectIndex != -1) {  //交换
             moveAnimStarted = true;
-            View child = children.get(intersectIndex);
-            Rect temp = new Rect(childPos.get(intersectIndex));
-            int desLeft = lastSpacePosition.left;
-            int desTop = lastSpacePosition.top;
-            ViewPropertyAnimator animator = child.animate().x(desLeft).y(desTop);
-            final int index = intersectIndex;
-            animator.setListener(new Animator.AnimatorListener() {
-                @Override
-                public void onAnimationStart(Animator animation) {
-                    moveAnimStarted = true;
+            final int dragIndex = curDragposition - getFirstVisiblePosition();
+            final int desIndex = intersectIndex;
+            if (dragIndex > desIndex) {  //向之前移动，从intersectIndex到dragIndex中的所有item向后移动
+                ViewPropertyAnimatorCompatSet animatorSet = new ViewPropertyAnimatorCompatSet();
+                for (int i = dragIndex - 1; i >= desIndex; i --) {
+                    View view = children.get(i);
+                    Rect temp = new Rect(childPos.get(i));
+                    int desLeft = lastSpacePosition.left;
+                    int desTop = lastSpacePosition.top;
+                    ViewPropertyAnimatorCompat animator = ViewCompat.animate(view);
+                    animator.x(desLeft).y(desTop);
+                    animatorSet.play(animator);
+                    lastSpacePosition = temp;
                 }
-
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    Object a = dataListCopy.get(curDragposition);
-                    Object b  = dataListCopy.get(index + getFirstVisiblePosition());
-                    dataListCopy.set(curDragposition, b);
-                    dataListCopy.set(index + getFirstVisiblePosition(), a);
-                    View ca = children.get(curDragposition - getFirstVisiblePosition());
-                    View cb = children.get(index);
-                    children.set(curDragposition - getFirstVisiblePosition(), cb);
-                    children.set(index, ca);
-                    curDragposition = index + getFirstVisiblePosition();
-                    moveAnimStarted = false;
-                    if (delayEndCall) {
-                        delayEndCall = false;
-                        dragSortEnd();
+                animatorSet.setListener(new ViewPropertyAnimatorListener() {
+                    @Override
+                    public void onAnimationStart(View view) {
                     }
+
+                    @Override
+                    public void onAnimationEnd(View view) {
+                        View dragView = children.get(dragIndex);
+                        for (int i = dragIndex; i > desIndex; i --) {
+                            View pre = children.get(i - 1);
+                            children.set(i, pre);
+                        }
+                        children.set(desIndex, dragView);
+                        Object dragObject = dataListCopy.get(curDragposition);
+                        for (int i = curDragposition; i > desIndex + getFirstVisiblePosition(); i --) {
+                            Object pre = dataListCopy.get(i - 1);
+                            dataListCopy.set(i, pre);
+                        }
+                        dataListCopy.set(desIndex + getFirstVisiblePosition(), dragObject);
+                        curDragposition = desIndex + getFirstVisiblePosition();
+                        moveAnimStarted = false;
+                        if (delayEndCall) {
+                            delayEndCall = false;
+                            dragSortEnd();
+                        }
+                    }
+
+                    @Override
+                    public void onAnimationCancel(View view) {
+                    }
+                });
+                animatorSet.setDuration(200);
+                animatorSet.setInterpolator(new LinearInterpolator());
+                animatorSet.start();
+            } else {  //向后移动，从dragIndex到intersectIndex中所有的item都向前移动 dragIndex < intersectIndex
+                ViewPropertyAnimatorCompatSet animatorSet = new ViewPropertyAnimatorCompatSet();
+                for (int i = dragIndex + 1; i <= desIndex; i ++) {
+                    View view = children.get(i);
+                    Rect temp = new Rect(childPos.get(i));
+                    int desLeft = lastSpacePosition.left;
+                    int desTop = lastSpacePosition.top;
+                    ViewPropertyAnimatorCompat animator = ViewCompat.animate(view);
+                    animator.x(desLeft).y(desTop);
+                    animatorSet.play(animator);
+                    lastSpacePosition = temp;
                 }
+                animatorSet.setListener(new ViewPropertyAnimatorListener() {
+                    @Override
+                    public void onAnimationStart(View view) {
+                    }
 
-                @Override
-                public void onAnimationCancel(Animator animation) {
+                    @Override
+                    public void onAnimationEnd(View view) {
+                        View dragView = children.get(dragIndex);
+                        for (int i = dragIndex; i < desIndex; i ++) {
+                            View next = children.get(i + 1);
+                            children.set(i, next);
+                        }
+                        children.set(desIndex, dragView);
+                        Object dragObject = dataListCopy.get(curDragposition);
+                        for (int i = curDragposition; i < desIndex + getFirstVisiblePosition(); i ++) {
+                            Object next = dataListCopy.get(i + 1);
+                            dataListCopy.set(i, next);
+                        }
+                        dataListCopy.set(desIndex + getFirstVisiblePosition(), dragObject);
+                        curDragposition = desIndex + getFirstVisiblePosition();
+                        moveAnimStarted = false;
+                        if (delayEndCall) {
+                            delayEndCall = false;
+                            dragSortEnd();
+                        }
+                    }
 
-                }
-
-                @Override
-                public void onAnimationRepeat(Animator animation) {
-
-                }
-            });
-            animator.start();
-//            Log.e(TAG, "left from " + child.getLeft() + " to " + lastSpacePosition.left);
-//            Log.e(TAG, "top from " + child.getTop() + " to " + lastSpacePosition.top);
-            lastSpacePosition = temp;
+                    @Override
+                    public void onAnimationCancel(View view) {
+                    }
+                });
+                animatorSet.setDuration(200);
+                animatorSet.setInterpolator(new LinearInterpolator());
+                animatorSet.start();
+            }
         }
     }
+
+//    private void collisionDetect() {
+//        if (dragView == null) {
+//            return;
+//        }
+//        if (moveAnimStarted) {
+//            return;
+//        }
+//        int width = dragView.getWidth();
+//        int height = dragView.getHeight();
+//        float area = width * height;
+//        Rect rect_drag = new Rect(dragView.getLeft(), dragView.getTop(), dragView.getRight(), dragView.getBottom());
+//        int intersectIndex = -1;
+//        for (int i = 0; i < childPos.size(); i ++) {
+//            if (i == curDragposition - getFirstVisiblePosition()) continue;
+//            Rect rect = childPos.get(i);
+//            Region region = new Region(rect);
+//            Region region_drag = new Region(rect_drag);
+//            boolean intersected = region_drag.op(region, Region.Op.INTERSECT);
+//            if (intersected) {
+//                Rect intersect = region_drag.getBounds();
+//                float area_intersect = (intersect.right - intersect.left) * (intersect.bottom - intersect.top);
+//                if (area_intersect > area / 3) {  //相交
+//                    intersectIndex = i;
+//                    break;
+//                }
+//            }
+//        }
+//        if (intersectIndex != -1) {  //交换
+//            moveAnimStarted = true;
+//            View child = children.get(intersectIndex);
+//            Rect temp = new Rect(childPos.get(intersectIndex));
+//            int desLeft = lastSpacePosition.left;
+//            int desTop = lastSpacePosition.top;
+//            ViewPropertyAnimator animator = child.animate().x(desLeft).y(desTop);
+//            final int index = intersectIndex;
+//            animator.setListener(new Animator.AnimatorListener() {
+//                @Override
+//                public void onAnimationStart(Animator animation) {
+//                    moveAnimStarted = true;
+//                }
+//
+//                @Override
+//                public void onAnimationEnd(Animator animation) {
+//                    Object a = dataListCopy.get(curDragposition);
+//                    Object b  = dataListCopy.get(index + getFirstVisiblePosition());
+//                    dataListCopy.set(curDragposition, b);
+//                    dataListCopy.set(index + getFirstVisiblePosition(), a);
+//                    View ca = children.get(curDragposition - getFirstVisiblePosition());
+//                    View cb = children.get(index);
+//                    children.set(curDragposition - getFirstVisiblePosition(), cb);
+//                    children.set(index, ca);
+//                    curDragposition = index + getFirstVisiblePosition();
+//                    moveAnimStarted = false;
+//                    if (delayEndCall) {
+//                        delayEndCall = false;
+//                        dragSortEnd();
+//                    }
+//                }
+//
+//                @Override
+//                public void onAnimationCancel(Animator animation) {
+//
+//                }
+//
+//                @Override
+//                public void onAnimationRepeat(Animator animation) {
+//
+//                }
+//            });
+//            animator.start();
+////            Log.e(TAG, "left from " + child.getLeft() + " to " + lastSpacePosition.left);
+////            Log.e(TAG, "top from " + child.getTop() + " to " + lastSpacePosition.top);
+//            lastSpacePosition = temp;
+//        }
+//    }
 
     public void printChildren() {
         StringBuilder sb = new StringBuilder();
@@ -186,6 +319,7 @@ public class DragSortGridView extends GridView {
     }
 
     public void init() {
+        mHandler = new Handler();
         setChildrenDrawingOrderEnabled(true);
         mViewDragHelper = ViewDragHelper.create(this, 1.0f, new ViewDragHelper.Callback() {
             @Override
@@ -215,7 +349,13 @@ public class DragSortGridView extends GridView {
             @Override
             public void onViewPositionChanged(View changedView, int left, int top, int dx, int dy) {
                 super.onViewPositionChanged(changedView, left, top, dx, dy);
-                collisionDetect();
+                mHandler.removeCallbacksAndMessages(null);
+                mHandler.postDelayed(new Runnable() {   //移动过程不检测碰撞，仅在停住不动一秒后才进行判断
+                    @Override
+                    public void run() {
+                        collisionDetect();
+                    }
+                }, 300);
             }
 
             @Override
