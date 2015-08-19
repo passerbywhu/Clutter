@@ -42,7 +42,7 @@ public class PullToZoomInterceptActivity extends Activity {
                 return true;
             }
         });
-        mHeaderView.setImageResource(R.drawable.pulltozoom);
+        mHeaderView.setImageResource(R.drawable.pull_to_zoom);
         Drawable drawable = mHeaderView.getDrawable();
         int height = drawable.getMinimumHeight();
         mHeaderView.getLayoutParams().height = height / 3;
