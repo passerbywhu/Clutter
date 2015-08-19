@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="statusbar_bg">#88FF0000</color>
-
+    <color name="gray_bg">#ffe5e7e9</color>
     <color name="swipe_color_1">#B6DB49</color>
     <color name="swipe_color_2">#99CC00</color>
     <color name="swipe_color_3">#8ABD00</color>

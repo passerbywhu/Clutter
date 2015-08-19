@@ -13,94 +13,43 @@ import android.widget.ListView;
  * Created by wuwenchao3 on 2015/4/3.
  */
 public class PullToZoomInterceptLayout extends LinearLayout {
-//    private ListView mListView;
     private ImageView mHeaderView;
     private ListView mListView;
-//    private View mListView;
-    private static int COUNT = 0;
-    private int thisCount = COUNT ++;
-
     private static final String TAG = "INTERCEPT_LAYOUT";
+//    private boolean hasDispatched = false;
+    private int mHeight;
 
     public PullToZoomInterceptLayout(Context context) {
         super(context);
-        init();
     }
 
     public PullToZoomInterceptLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
     }
 
     public PullToZoomInterceptLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
     }
 
-    private void init() {
-        post(new Runnable() {
+    @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
+        mHeaderView = (ImageView) getChildAt(0);
+        mListView = (ListView) getChildAt(1);
+        mHeaderView.post(new Runnable() {
             @Override
             public void run() {
-                mHeaderView = (ImageView) getChildAt(0);
-                mListView = (ListView) getChildAt(1);
-//                mListView = getChildAt(1);
+                mHeight = mHeaderView.getLayoutParams().height;
             }
         });
     }
 
-//    int moveNum = 0;
-//
-//    @Override
-//    public boolean onInterceptTouchEvent(MotionEvent ev) {
-//        if (thisCount == 2) {
-//            int action = ev.getAction();
-//            if (action == MotionEvent.ACTION_DOWN) {
-//                Log.e(TAG, "count 2 onIntercept Down");
-//                return false;
-//            }
-//            if (action == MotionEvent.ACTION_MOVE) {
-//                Log.e(TAG, "count 2 onIntercept MOVE");
-//                moveNum ++;
-//                if (moveNum == 100) {
-//                    Log.e(TAG, "count 2 intercepted Move return true");
-//                    moveNum ++;
-//                    return true;
-//                } else {
-//                    return false;
-//                }
-//            }
-//        } else {
-//            return super.onInterceptTouchEvent(ev);
-//        }
-//        return super.onInterceptTouchEvent(ev);
-//    }
-//
-//    int count2Num = 0;
-//    @Override
-//    public boolean onTouchEvent(MotionEvent event) {
-//        if (thisCount == 2) {
-//            Log.e(TAG, "count 2 onTouch");
-//            count2Num ++;
-//            if (count2Num == 100) {
-//                count2Num ++;
-//                Log.e(TAG, "count2 100 Í£Ö¹À¹½Ø");
-//                MotionEvent cancelEvent = MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_CANCEL, event.getX(), event.getY(), 1);
-//                dispatchTouchEvent(cancelEvent);
-//                MotionEvent downEvent = MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_DOWN, event.getX(), event.getY(), 1);
-//                dispatchTouchEvent(downEvent);  //ÕâÀïÊÇ·ñ¿ÉÒÔsuper.onTouchEvent»¹ÊÇÓ¦¸Ãµ÷ÓÃsuper.onInterceptTouch?
-//                return true;
-//            } else {
-//                return true;
-//            }
-//        }
-//        if (thisCount == 3) {
-//            Log.e(TAG, "count 3 onTouch");
-//            return true;
-//        }
-//        return super.onTouchEvent(event);
-//    }
+    @Override
+    public void requestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+        super.requestDisallowInterceptTouchEvent(false);
+    }
 
-        float startPosY;
+    float startPosY;
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
@@ -115,23 +64,17 @@ public class PullToZoomInterceptLayout extends LinearLayout {
                 float speedY = ev.getY() - startPosY;
                 startPosY = ev.getY();
                 Log.e(TAG, "intercept ACTION_MOVE mHeaderView.getBottom() = " + mHeaderView.getBottom());
-                if (mHeaderView.getBottom() > 0) {  //Ö»ÒªmHeaderView¿É¼û£¬ÄÇÃ´¶¼ÒªÀ¹½Ø
-                    Log.e(TAG, "intercept Bottom > 0 À¹½Ø");
+                if (mHeaderView.getBottom() > mHeight) {  //åªè¦mHeaderViewå¯è§ï¼Œé‚£ä¹ˆéƒ½è¦æ‹¦æˆª
+                    Log.e(TAG, "intercept Bottom > 0 æ‹¦æˆª");
                     return true;
-                } else {   //mHeaderView == 0
-//                    Log.e(TAG, "intercept mListView.getChildAt(0).getTop() = " + mListView.getChildAt(0).getTop() + " speedY = " + speedY);
-//                    if (mListView.getChildAt(0).getTop() == 0 && speedY > 0) {   //°ÑmHeaderViewÀ­³É¿É¼û
-//                        Log.e(TAG, "intercept ½øÈëÁÙ½çµã£¬À¹½Ø");
-//                        return true;
-//                    }
-                    Log.e(TAG, "intercept ACTION_MOVE mListView.getScrollY = " + mListView.getScrollY() + " speedY = " + speedY);
-                    if (mListView.getScrollY() <= 0 && speedY > 0) {  //mHeaderView±»À­¿É¼û£¬Ò²¾ÍÊÇscrollYÓ¦¸ÃÊÇĞ¡ÓÚµÈÓÚ0µÄÇé¿ö
-                        mListView.scrollBy(0, -mListView.getScrollY()); //ÖÃÎª0
-                        Log.e(TAG, "intercept ½øÈëÁÙ½çµã£¬À¹½Ø");
+                } else {   //mHeaderView.getBottom() <= 0  å®é™…ä¸Šä¸ä¼šæœ‰å°äº0çš„æƒ…å†µ
+                    Log.e(TAG, "intercept mListView.getChildAt(0).getTop() = " + mListView.getChildAt(0).getTop() + " speedY = " + speedY);
+                    if (mListView.getChildAt(0).getTop() == 0 && speedY > 0 && mListView.getFirstVisiblePosition() == 0) {   //æŠŠmHeaderViewæ‹‰æˆå¯è§
+                        Log.e(TAG, "intercept è¿›å…¥ä¸´ç•Œç‚¹ï¼Œæ‹¦æˆª");
                         return true;
                     }
-                    Log.e(TAG, "intercept ²»À¹½Ø");
-                    return false; //²»À¹½Ø
+                    Log.e(TAG, "intercept ä¸æ‹¦æˆª");
+                    return false; //ä¸æ‹¦æˆª
                 }
             case MotionEvent.ACTION_CANCEL:
                 Log.e(TAG, "intercept ACTION_CANCEL **********");
@@ -150,7 +93,7 @@ public class PullToZoomInterceptLayout extends LinearLayout {
         int action = event.getAction();
         switch(action) {
             case MotionEvent.ACTION_DOWN:
-                //ÀíÂÛÉÏ²»»á½øµ½ÕâÀï¡£²»À¹½ØACTION_DOWN;
+                //ç†è®ºä¸Šä¸ä¼šè¿›åˆ°è¿™é‡Œã€‚ä¸æ‹¦æˆªACTION_DOWN;
                 Log.e(TAG, "touch ACTION_DOWN");
                 break;
             case MotionEvent.ACTION_MOVE:
@@ -158,19 +101,20 @@ public class PullToZoomInterceptLayout extends LinearLayout {
                 startPosY = event.getY();
                 float newBottom = mHeaderView.getBottom() + speedY;
                 Log.e(TAG, "touch ACTION_MOVE speedY = " +  speedY + " newBottom = " + newBottom);
-                if (newBottom >= 0) {  //ĞŞ¸Ä´óĞ¡¾ÍºÃÁË
+                if (newBottom >= mHeight) {  //ä¿®æ”¹å¤§å°å°±å¥½äº†
+//                    hasDispatched = false;
                     mHeaderView.getLayoutParams().height = (int) newBottom;
                     requestLayout();
                     return true;
-                } else {
-                    mHeaderView.getLayoutParams().height = 0; //Í£Ö¹À¹½Ø
-                    Log.e(TAG, "touch ½øÈëÁÙ½çµã£¬È¡ÏûtouchÊÂ¼ş");
-                    MotionEvent cancelEvent = MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_CANCEL, event.getX(), event.getY(), 1);
-                    dispatchTouchEvent(cancelEvent);
-                    MotionEvent downEvent = MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_DOWN, event.getX(), event.getY(), 1);
-                    dispatchTouchEvent(downEvent);  //ÕâÀïÊÇ·ñ¿ÉÒÔsuper.onTouchEvent»¹ÊÇÓ¦¸Ãµ÷ÓÃsuper.onInterceptTouch?
-                    requestLayout();
-                    return true;
+                } else {  //newBottom < 0
+                        mHeaderView.getLayoutParams().height = mHeight; //åœæ­¢æ‹¦æˆª
+                        Log.e(TAG, "touch è¿›å…¥ä¸´ç•Œç‚¹ï¼Œå–æ¶ˆtouchäº‹ä»¶");
+                        MotionEvent cancelEvent = MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_CANCEL, event.getX(), event.getY(), 1);
+                        dispatchTouchEvent(cancelEvent);
+                        MotionEvent downEvent = MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_DOWN, event.getX(), event.getY(), 1);
+                        dispatchTouchEvent(downEvent);  //è¿™é‡Œæ˜¯å¦å¯ä»¥super.onTouchEventè¿˜æ˜¯åº”è¯¥è°ƒç”¨super.onInterceptTouch?
+                        requestLayout();
+                        return true;
                 }
             case MotionEvent.ACTION_CANCEL:
                 Log.e(TAG, "onTouch cancel");

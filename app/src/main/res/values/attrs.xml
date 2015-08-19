@@ -12,4 +12,11 @@
     <declare-styleable name="OnMeasureLayout">
         <attr name="layout_name" format="string" />
     </declare-styleable>
+
+    <declare-styleable name="PullToRefresh">
+        <attr name="ptrRefreshableViewBackground" format="reference|color"/>
+        <attr name="ptrOverScroll" format="reference|boolean"/>
+        <attr name="ptrScrollingWhileRefreshingEnabled" format="reference|boolean"/>
+        <attr name="ptrListViewExtrasEnabled" format="reference|boolean"/>
+    </declare-styleable>
 </resources>

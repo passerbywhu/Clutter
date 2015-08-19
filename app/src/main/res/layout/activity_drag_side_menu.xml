@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.passerbywhu.study.dragstudy.BesideDragLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.passerbywhu.study.touchstudy.dragstudy.BesideDragLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:id="@+id/dragresideLayout"
               android:layout_width="match_parent"
@@ -20,13 +20,13 @@
             />
         </RelativeLayout>
 
-    <com.passerbywhu.study.dragstudy.MyRelativeLayout
+    <com.passerbywhu.study.touchstudy.dragstudy.MyRelativeLayout
         android:id="@+id/rightLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#eeeeee">
 
-        <com.passerbywhu.study.dragstudy.MySwipeRefreshLayout
+        <com.passerbywhu.study.touchstudy.dragstudy.MySwipeRefreshLayout
             android:id="@+id/swipeRefresh"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -43,7 +43,7 @@
                 android:text="emptyView"
                 android:visibility="gone"
                 ></TextView>
-        </com.passerbywhu.study.dragstudy.MySwipeRefreshLayout>
-    </com.passerbywhu.study.dragstudy.MyRelativeLayout>
+        </com.passerbywhu.study.touchstudy.dragstudy.MySwipeRefreshLayout>
+    </com.passerbywhu.study.touchstudy.dragstudy.MyRelativeLayout>
 
-</com.passerbywhu.study.dragstudy.BesideDragLayout>
+</com.passerbywhu.study.touchstudy.dragstudy.BesideDragLayout>
