@@ -5,4 +5,7 @@
 
     <dimen name="login_text_size">15dp</dimen>
     <dimen name="sub_button_text_size">14sp</dimen>
+
+    <dimen name="secondHeight">134dp</dimen>
+    <dimen name="firstHeight">102dp</dimen>
 </resources>

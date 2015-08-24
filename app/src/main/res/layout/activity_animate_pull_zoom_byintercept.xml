@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.passerbywhu.study.touchstudy.pulltozoom.AnimatePullToZoomInterceptLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/rootLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        
+    <com.passerbywhu.study.touchstudy.pulltozoom.ScaleImageView
+           android:id="@+id/headerView"
+           android:layout_width="match_parent"
+           android:layout_height="@dimen/secondHeight"
+           android:scaleType="centerCrop"
+           android:clickable="true"
+           android:focusable="true"
+           android:src="@drawable/pull_to_zoom"
+            />        
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_below="@id/headerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        ></ListView>
+    
+    <TextView
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:text="返回"
+        />
+    
+    <RelativeLayout 
+        android:id="@+id/pageArea"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/line_pgrecommend"
+        >
+        <TextView 
+	       android:id="@+id/curPage"
+	       android:layout_width="wrap_content"
+	       android:layout_height="wrap_content"
+	       android:gravity="center"
+	       android:textColor="#FFFFFF"
+	       android:text="10"
+	       android:paddingRight="7dp"
+	       android:layout_centerHorizontal="true"
+	       android:layout_alignParentTop="true"
+	       android:textSize="23sp"
+	        />
+        <TextView 
+            android:id="@+id/totalPage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:text="18"
+            android:paddingLeft="7dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:textSize="13sp"
+            />
+    </RelativeLayout>
+    
+    <TextView 
+        android:id="@+id/plus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:text="加号"
+        android:layout_alignParentRight="true"
+        android:layout_alignBottom="@id/headerView"
+        android:layout_marginBottom="21dp"
+        android:layout_marginRight="14dp"
+        />
+    
+     <TextView 
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="63dp"
+        android:layout_marginLeft="54dp"
+        android:text="魔兽世界"
+        android:textSize="23sp"
+        android:textColor="#FFFFFF"
+        />
+     
+     <TextView 
+         android:id="@+id/subTitle"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="4dp"
+         android:textSize="13sp"
+         android:textColor="#FFFFFF"
+         android:layout_below="@id/title"
+         android:layout_alignLeft="@id/title"
+         android:text="为了部落为了部落为了部落"
+         />
+</com.passerbywhu.study.touchstudy.pulltozoom.AnimatePullToZoomInterceptLayout>
