@@ -79,6 +79,11 @@ public class DragSortGridView extends GridView {
     }
 
     @Override
+    public void onTouchModeChanged(boolean isInTouchMode) {
+        super.onTouchModeChanged(isInTouchMode);
+    }
+
+    @Override
     protected int getChildDrawingOrder(int childCount, int i) {
         if (topLayerIndex != -1) {
             if (i == topLayerIndex) {

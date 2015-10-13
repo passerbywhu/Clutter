@@ -1,9 +1,11 @@
 apply plugin: 'com.android.application'
-apply plugin: 'android-apt'
+apply plugin: 'com.android.databinding'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'me.tatarka.retrolambda'
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion "21.1.2"
+    compileSdkVersion 22
+    buildToolsVersion '22.0.0'
 
     defaultConfig {
         applicationId "com.passerbywhu.study"
@@ -24,6 +26,11 @@ android {
     lintOptions {
         disable 'InvalidPackage'
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 
@@ -36,6 +43,7 @@ dependencies {
     compile 'com.facebook.rebound:rebound:0.3.7'
     apt 'com.google.dagger:dagger-compiler:2.0.1'
     compile 'com.google.dagger:dagger:2.0.1'
+    provided 'javax.annotation:jsr250-api:1.0'
     compile 'com.jakewharton:butterknife:6.1.0'
     compile 'com.larswerkman:HoloColorPicker:1.5'
 }

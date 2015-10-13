@@ -21,13 +21,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 
-class GraphicsActivity extends Activity {
+import com.passerbywhu.study.canvasstudy.foldlayout.BitmapDrawerView;
+
+public class GraphicsActivity extends Activity {
     // set to true to test Picture
     private static final boolean TEST_PICTURE = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(new BitmapDrawerView(this));
     }
 
     @Override

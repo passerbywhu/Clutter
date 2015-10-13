@@ -4,6 +4,7 @@ package com.passerbywhu.study.common.consts;
  * Created by wuwenchao3 on 2015/5/18.
  */
 public final class Const {
+    public static final boolean IS_DEBUG = true;
     public static final int DEFAULT_PAGESIZE = 10;
     public static final int DEFAULT_TOTAL_SIZE = 50;
     public static final String TAG = "com.passerbywhu.study";

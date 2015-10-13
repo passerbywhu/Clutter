@@ -263,7 +263,7 @@ public class AnimatePullToZoomInterceptLayout extends RelativeLayout {
 								public void onAnimationCancel(Animator animation) {
 								}
 							});
-                			animator.setDuration(500);
+                			animator.setDuration(300);
                 			animator.start();
                 		}
                 		return true;

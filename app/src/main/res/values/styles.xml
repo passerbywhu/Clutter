@@ -20,4 +20,8 @@
         <!--<item name="suggestionRowLayout"></item>-->
     </style>
 
+    <style name="TranslucentStyle" parent="android:Theme.Light">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
 </resources>

@@ -26,7 +26,7 @@ import javax.inject.Singleton;
 import dagger.Component;
 
 public class DemoApplication extends Application {
-  
+
   @Singleton
   @Component(modules = AndroidModule.class)
   public interface ApplicationComponent {
@@ -34,9 +34,9 @@ public class DemoApplication extends Application {
     void inject(HomeActivity homeActivity);
     void inject(DemoActivity demoActivity);
   }
-  
+
   @Inject LocationManager locationManager; // for some reason.
-  
+
   private ApplicationComponent component;
 
   @Override public void onCreate() {

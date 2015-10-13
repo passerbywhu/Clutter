@@ -1,1 +1,1 @@
-include ':app', ':universalimageloader'
+include ':app'

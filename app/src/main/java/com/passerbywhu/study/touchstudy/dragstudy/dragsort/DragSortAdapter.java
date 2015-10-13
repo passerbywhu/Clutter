@@ -8,6 +8,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.passerbywhu.study.common.adapter.AdapterBase;
+import com.passerbywhu.study.common.utils.Logger;
 
 /**
  * Created by wuwenchao3 on 2015/7/6.
@@ -30,6 +31,7 @@ public class DragSortAdapter extends AdapterBase {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder = null;
         if (convertView == null) {
+            Logger.e(position + " create view");
 //            convertView = LayoutInflater.from(mContext).inflate(R.layout.drag_sort_item, parent, false);
 //            viewHolder = new ViewHolder((TextView) convertView.findViewById(R.id.textView));
             TextView textView = new TextView(mContext);
@@ -41,6 +43,7 @@ public class DragSortAdapter extends AdapterBase {
             viewHolder = new ViewHolder((TextView) convertView);
             convertView.setTag(viewHolder);
         } else {
+            Logger.e(position + "reuse view");
             viewHolder = (ViewHolder) convertView.getTag();
         }
         viewHolder.textView.setText(getItem(position) + " Block");

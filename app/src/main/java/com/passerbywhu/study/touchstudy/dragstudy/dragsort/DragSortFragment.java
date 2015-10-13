@@ -8,7 +8,8 @@ import android.view.ViewGroup;
 
 import com.passerbywhu.study.R;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by wuwenchao3 on 2015/7/6.
@@ -22,7 +23,11 @@ public class DragSortFragment extends Fragment {
         View view = inflater.inflate(R.layout.drag_sort_fragment, container, false);
         mGridView = (DragSortGridView) view.findViewById(R.id.gridView);
         mAdapter = new DragSortAdapter(getActivity());
-        mAdapter.setList(Arrays.asList("A B C D E F G H I J K L M N O P Q".split(" ")));
+        List<String> data = new ArrayList<String>();
+        for (int i = 0; i < 100; i ++) {
+            data.add(i + "");
+        }
+        mAdapter.setList(data);
         mGridView.setAdapter(mAdapter);
         return view;
     }
