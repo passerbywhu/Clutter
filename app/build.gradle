@@ -36,8 +36,10 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'io.reactivex:rxandroid:1.0.1'
+    compile 'io.reactivex:rxjava:1.0.14'
     compile 'com.android.support:appcompat-v7:22.0.0'
-    compile 'com.android.support:recyclerview-v7:21.0.+'
+    compile 'com.android.support:recyclerview-v7:22.0.+'
     compile 'de.greenrobot:eventbus:2.4.0'
     compile 'com.facebook.fresco:fresco:0.1.0+'
     compile 'com.facebook.rebound:rebound:0.3.7'

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DragSort</string>
+    <string name="app_name">Study</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -28,4 +28,5 @@
 
     <string name="loading">加载中…</string>
     <string name="no_more_leave_tip">最多记录100条消息，每条消息最多可保存7天</string>
+    <string name="title_activity_rx_java">RxJavaActivity</string>
 </resources>
