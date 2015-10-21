@@ -79,6 +79,10 @@ c
         <activity
             android:name=".rxjavastudy.RxJavaActivity"
             android:label="@string/title_activity_rx_java" >
+        </activity>
+        <activity android:name=".retrofitstudy.HelloRetrofit">
+        </activity>
+        <activity android:name=".rxjavastudy.callbackhell.CallbackHellActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
