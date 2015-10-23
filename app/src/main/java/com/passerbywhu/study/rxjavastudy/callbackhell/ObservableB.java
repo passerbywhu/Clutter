@@ -20,6 +20,7 @@ public class ObservableB {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+                Logger.e("A Thread = " + Thread.currentThread().getName());
                 subscriber.onNext("responseA");
                 subscriber.onCompleted();
             }
@@ -34,6 +35,7 @@ public class ObservableB {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            Logger.e("B Thread = " + Thread.currentThread().getName());
             subscriber.onNext("responseB");
             subscriber.onCompleted();
         });
@@ -47,6 +49,7 @@ public class ObservableB {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            Logger.e("C Thread = " + Thread.currentThread().getName());
             subscriber.onNext("responseC_denpendOn_" + dependencyFromA);
             subscriber.onCompleted();
         });
@@ -60,6 +63,7 @@ public class ObservableB {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            Logger.e("D Thread = " + Thread.currentThread().getName());
             subscriber.onNext("responseD_dependOn_" + dependencyFromB);
             subscriber.onCompleted();
         });
@@ -73,6 +77,7 @@ public class ObservableB {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            Logger.e("E Thread = " + Thread.currentThread().getName());
             subscriber.onNext("responseE_dependOn_" + dependencyFromB);
             subscriber.onCompleted();
         });
@@ -84,12 +89,12 @@ public class ObservableB {
 //        Observable<String> f4_merge_f5 = CallToRemoteServiceB().flatMap(f2 ->
 //            CallToRemoteServiceD(f2).mergeWith(CallToRemoteServiceE(f2))
 //        );
-//        f3.mergeWith(f4_merge_f5).observeOn(Schedulers.io()).
-//                subscribeOn(AndroidSchedulers.mainThread()).subscribe(value-> Logger.e(value+"\n"));
+//        f3.mergeWith(f4_merge_f5).observeOn(AndroidSchedulers.mainThread()).
+//                subscribeOn(Schedulers.io()).subscribe(value -> Logger.e(value + "\n"));
 
         CallToRemoteServiceA().flatMap(f1->CallToRemoteServiceC(f1)).zipWith(
                 CallToRemoteServiceB().flatMap(f2->CallToRemoteServiceD(f2).zipWith(
                         CallToRemoteServiceE(f2), (f4, f5) -> f4 + " " + f5)), (f3, f4_merge_f5) -> f3 + " " + f4_merge_f5
-        ).observeOn(Schedulers.io()).subscribeOn(AndroidSchedulers.mainThread()).subscribe(result-> Logger.e(result));
+        ).observeOn(AndroidSchedulers.mainThread()).subscribeOn(Schedulers.io()).subscribe(result -> Logger.e(result));
     }
 }
